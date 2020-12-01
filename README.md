@@ -1,5 +1,10 @@
 # digital_watermarking
+
 Implementation of algorithms DCT, DWT watermarking.
+
+Reference repository https://github.com/Messi-Q/python-watermark/tree/master/image_digital_watermark/case3.
+
+Source code was edited to be able to embed and extract the signature as an image.
 
 ### Install all dependencies:
 
