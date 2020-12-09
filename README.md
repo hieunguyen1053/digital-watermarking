@@ -1,4 +1,4 @@
-# digital_watermarking
+# digital-watermarking
 
 Implementation of algorithms DCT, DWT watermarking.
 
