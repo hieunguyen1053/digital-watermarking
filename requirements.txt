@@ -1,4 +1,4 @@
-inquirer==2.7.0
-numpy==1.19.4
-opencv-contrib-python==4.4.0.46
-PyWavelets==1.1.1
+inquirer==3.1.4
+numpy==1.26.2
+opencv-contrib-python==4.8.1.78
+PyWavelets==1.5.0
