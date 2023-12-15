@@ -11,10 +11,13 @@ from psnr import PSNR
 
 
 def main(args):
-    img = cv2.imread(args.origin)
+    #img = cv2.imread(args.origin)
+    #wm = cv2.imread(args.watermark, cv2.IMREAD_GRAYSCALE)
+
+    img = cv2.imread("./images/cover.jpg")
     wm = cv2.imread(args.watermark, cv2.IMREAD_GRAYSCALE)
 
-    questions = [
+    questions = [   
         inquirer.List("type", message="Choice type", choices=["DCT", "DWT", "Attack", "PSNR"]),
     ]
 
@@ -78,6 +81,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(prog="compare", formatter_class=argparse.RawTextHelpFormatter)
     parser.add_argument("--origin", default="./images/cover.jpg", help="origin image file")
     parser.add_argument("--watermark", default="./images/watermark.jpg", help="watermark image file")
-    parser.add_argument("--output", default="./images/watermarked.jpg", help="embedding image file")
+    parser.add_argument("--output", default="./output/watermarked.jpg", help="embedding image file")
     args = parser.parse_args()
+    
     main(parser.parse_args())
