@@ -1,0 +1,46 @@
+DWT Embedding
+python main.py --origin "./images/cover.jpg" --watermark "./images/watermark.jpg" --output "./output/DWT-embedded.jpg"
+
+
+DWT DCT Embedding --Choose DCT 
+python main.py --origin "./output/DWT-embedded.jpg" --watermark "./images/watermark.jpg" --output "./output/DWT-DCT-embedded.jpg"
+
+--------------------------------------------
+
+All Attacks
+
+Attack to DWT
+python main.py --origin "./output/DWT-embedded.jpg" --output "./output/DWT-embedded-attack.jpg"
+
+Attack to DWT-DCT
+python main.py --origin "./output/DWT-DCT-embedded.jpg" --output "./output/DWT-DCT-embedded-attack.jpg"
+
+--------------------------------------------
+
+DWT Extraction watermark
+python main.py --origin "./output/DWT-embedded.jpg" --output "./output/DWT-extracted.jpg"
+
+DWT Extraction watermark after attack
+python main.py --origin "./output/DWT-embedded-attack.jpg" --output "./output/DWT-attack-extracted.jpg"
+
+DWT-DCT Extraction watermark
+python main.py --origin "./output/DWT-DCT-embedded.jpg" --output "./output/DWT-DCT-extracted.jpg"
+
+DWT-DCT Extraction watermark after attack
+python main.py --origin "./output/DWT-DCT-embedded-attack.jpg" --output "./output/DWT-DCT-attack-extracted.jpg"
+
+--------------------------------------------
+
+cover - DWT embedded
+cover - DWT - DCT
+watermark - DWT-DCT attacked watermarked
+ 
+PSNR compare 
+cover - (DWT after attack)
+python main.py --origin "./images/cover.jpg" --watermarkedImage "./output/DWT-embedded-attack.jpg"
+
+cover - (DWT-DCT after attack)
+python main.py --origin "./images/cover.jpg" --watermarkedImage "./output/DWT-DCT-embedded-attack.jpg"
+
+watermark - (DWT-DCT watermark after attack)
+python main.py --origin "./images/watermark.jpg" --watermarkedImage "./output/DWT-DCT-attack-extracted.jpg" 
