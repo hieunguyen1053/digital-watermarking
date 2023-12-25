@@ -5,7 +5,7 @@ import math
 class Attack:
     @staticmethod
     def blur(img: np.ndarray):
-        return cv2.blur(img, (2, 2))
+        return cv2.blur(img, (10, 10))
 
     @staticmethod
     def rotate180(img: np.ndarray):

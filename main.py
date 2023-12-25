@@ -7,6 +7,7 @@ import numpy as np
 from attack import Attack
 from dct_watermark import DCT_Watermark
 from dwt_watermark import DWT_Watermark
+from psnr import PSNR
 
 
 def main(args):
@@ -14,8 +15,9 @@ def main(args):
     wm = cv2.imread(args.watermark, cv2.IMREAD_GRAYSCALE)
 
     questions = [
-        inquirer.List("type", message="Choice type", choices=["DCT", "DWT", "Attack"]),
+        inquirer.List("type", message="Choice type", choices=["DCT", "DWT", "Attack", "PSNR"]),
     ]
+
     answers = inquirer.prompt(questions)
     if answers['type'] in ["DCT", "DWT"]:
         if answers['type'] == 'DCT':
@@ -66,11 +68,17 @@ def main(args):
         cv2.imwrite(args.output, att_img)
         print("Save as {}".format(args.output))
 
+    elif answers["type"] == "PSNR":
+        watermarked_image = cv2.imread(args.watermarkedImage)
+        output = PSNR(img, watermarked_image)
+        print(output)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(prog="compare", formatter_class=argparse.RawTextHelpFormatter)
     parser.add_argument("--origin", default="./images/cover.jpg", help="origin image file")
     parser.add_argument("--watermark", default="./images/watermark.jpg", help="watermark image file")
     parser.add_argument("--output", default="./images/watermarked.jpg", help="embedding image file")
+    parser.add_argument("--watermarkedImage", default="./images/watermarked.jpg", help="embedding image file")
     args = parser.parse_args()
     main(parser.parse_args())

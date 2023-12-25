@@ -12,21 +12,21 @@ Source code was edited to be able to embed and extract the signature as an image
 
 ### 1. Embedding watermark into a cover:
 
-`python main.py --origin path_cover_image --ouput path_output_image`
+`python main.py --origin path_cover_image --output path_output_image`
 
 Example:
 
-> `python main.py --origin cover.jpg --ouput watermarked.jpg`
+> `python main.py --origin cover.jpg --output watermarked.jpg`
 > 1. Then choice a type from "DCT" or "DWT".
 > 2. After that, choice "embedding".
 
 ### 2. Extracting watermark from a watermarked image:
 
-`python main.py --origin path_watermarked_image --ouput path_extracted_signature`
+`python main.py --origin path_watermarked_image --output path_extracted_signature`
 
 Example:
 
-> `python main.py --origin watermarked.jpg --ouput signature.jpg`
+> `python main.py --origin watermarked.jpg --output signature.jpg`
 > 1. Then choice a type from "DCT" or "DWT".
 > 2. After that, choice "extracting".
 
